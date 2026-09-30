@@ -1,0 +1,8 @@
+{
+  "name": "PAYMIND AI",
+  "description": "Payment infrastructure purpose-built for autonomous AI agents: machine-native wallets, programmable escrow, sub-cent micropayments, and cross-border reconciliation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

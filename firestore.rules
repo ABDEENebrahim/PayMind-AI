@@ -1,0 +1,127 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Default-deny all unspecified routes
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Diagnostic connection test document
+    match /test/{testId} {
+      allow read: if true;
+    }
+
+    // User Profile Document
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false; // Users cannot list other user profiles
+
+      allow create: if isOwner(userId)
+        && isValidId(userId)
+        && incoming().id == userId
+        && incoming().email is string
+        && incoming().email.size() <= 256
+        && incoming().createdAt is string
+        && incoming().createdAt.size() <= 64;
+
+      allow update: if isOwner(userId)
+        && incoming().id == existing().id
+        && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'photoURL'])
+        && (!('displayName' in incoming()) || (incoming().displayName is string && incoming().displayName.size() <= 128))
+        && (!('photoURL' in incoming()) || (incoming().photoURL is string && incoming().photoURL.size() <= 512));
+
+      allow delete: if false;
+
+      // Subcollection: Agent Wallets
+      match /wallets/{walletId} {
+        allow get, list: if isOwner(userId);
+
+        allow create: if isOwner(userId)
+          && isValidId(walletId)
+          && incoming().id == walletId
+          && incoming().userId == userId
+          && incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 128
+          && incoming().did is string && incoming().did.size() <= 128
+          && incoming().role is string && incoming().role.size() <= 64
+          && incoming().status is string && incoming().status.size() <= 32
+          && incoming().balance is number
+          && incoming().currency is string && incoming().currency.size() <= 16;
+
+        allow update: if isOwner(userId)
+          && incoming().id == existing().id
+          && incoming().userId == existing().userId
+          && incoming().diff(existing()).affectedKeys().hasOnly(['name', 'status', 'balance', 'spendingLimits', 'totalTransactionsCount', 'reputationScore', 'allowedServices'])
+          && (!('name' in incoming()) || (incoming().name is string && incoming().name.size() <= 128))
+          && (!('balance' in incoming()) || incoming().balance is number)
+          && (!('totalTransactionsCount' in incoming()) || incoming().totalTransactionsCount is number);
+
+        allow delete: if isOwner(userId);
+      }
+
+      // Subcollection: Escrow Contracts
+      match /escrows/{escrowId} {
+        allow get, list: if isOwner(userId);
+
+        allow create: if isOwner(userId)
+          && isValidId(escrowId)
+          && incoming().id == escrowId
+          && incoming().userId == userId
+          && incoming().title is string && incoming().title.size() > 0 && incoming().title.size() <= 256
+          && incoming().buyerAgentId is string && incoming().buyerAgentId.size() <= 128
+          && incoming().sellerAgentId is string && incoming().sellerAgentId.size() <= 128
+          && incoming().amount is number
+          && incoming().currency is string && incoming().currency.size() <= 16
+          && incoming().conditionType is string && incoming().conditionType.size() <= 64
+          && incoming().status is string && incoming().status.size() <= 64;
+
+        allow update: if isOwner(userId)
+          && incoming().id == existing().id
+          && incoming().userId == existing().userId
+          && incoming().diff(existing()).affectedKeys().hasOnly(['status', 'settledTxId', 'submittedProof', 'expiresAt'])
+          && (!('status' in incoming()) || (incoming().status is string && incoming().status.size() <= 64));
+
+        allow delete: if isOwner(userId);
+      }
+
+      // Subcollection: Micropayment Transactions
+      match /transactions/{txId} {
+        allow get, list: if isOwner(userId);
+
+        allow create: if isOwner(userId)
+          && isValidId(txId)
+          && incoming().id == txId
+          && incoming().userId == userId
+          && incoming().fromAgentId is string && incoming().fromAgentId.size() <= 128
+          && incoming().toAgentId is string && incoming().toAgentId.size() <= 128
+          && incoming().amount is number
+          && incoming().currency is string && incoming().currency.size() <= 16
+          && incoming().timestamp is number;
+
+        allow update: if false; // Transactions are immutable audit logs
+        allow delete: if false;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Authenticated user profile and metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "photoURL": { "type": "string", "maxLength": 512 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "email", "createdAt"]
+    },
+    "AgentWallet": {
+      "title": "AgentWallet",
+      "description": "Non-custodial machine agent wallet with programmable spending limits",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "did": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "maxLength": 32 },
+        "balance": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 16 },
+        "publicKey": { "type": "string", "maxLength": 128 },
+        "totalTransactionsCount": { "type": "number" },
+        "reputationScore": { "type": "number" },
+        "ownerAddress": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "avatarSeed": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "name", "did", "role", "status", "balance", "currency", "userId"]
+    },
+    "EscrowContract": {
+      "title": "EscrowContract",
+      "description": "Conditional escrow agreement between autonomous agents",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 256 },
+        "buyerAgentId": { "type": "string", "maxLength": 128 },
+        "sellerAgentId": { "type": "string", "maxLength": 128 },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 16 },
+        "conditionType": { "type": "string", "maxLength": 64 },
+        "conditionDescription": { "type": "string", "maxLength": 1024 },
+        "status": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "number" },
+        "expiresAt": { "type": "number" },
+        "settledTxId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "title", "buyerAgentId", "sellerAgentId", "amount", "currency", "conditionType", "status", "userId"]
+    },
+    "MicroTransaction": {
+      "title": "MicroTransaction",
+      "description": "High-frequency sub-cent micropayment record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "number" },
+        "fromAgentId": { "type": "string", "maxLength": 128 },
+        "toAgentId": { "type": "string", "maxLength": 128 },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 16 },
+        "serviceCategory": { "type": "string", "maxLength": 64 },
+        "units": { "type": "string", "maxLength": 128 },
+        "latencyMs": { "type": "number" },
+        "batchRollupId": { "type": "string", "maxLength": 64 },
+        "stateChannelId": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "maxLength": 32 },
+        "gasFeeSubCent": { "type": "number" },
+        "signature": { "type": "string", "maxLength": 256 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "timestamp", "fromAgentId", "toAgentId", "amount", "currency", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile with authentication and configuration details"
+    },
+    "/users/{userId}/wallets/{walletId}": {
+      "schema": "AgentWallet",
+      "description": "Machine-native agent wallets managed by the user"
+    },
+    "/users/{userId}/escrows/{escrowId}": {
+      "schema": "EscrowContract",
+      "description": "Programmable escrow contracts created or managed by the user"
+    },
+    "/users/{userId}/transactions/{txId}": {
+      "schema": "MicroTransaction",
+      "description": "Recorded M2M sub-cent transactions"
+    }
+  }
+}

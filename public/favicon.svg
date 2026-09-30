@@ -1,0 +1,23 @@
+<svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="10" fill="#0c1017"/>
+  <defs>
+    <linearGradient id="pmFaviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#14F195" />
+      <stop offset="60%" stopColor="#03E1FF" />
+      <stop offset="100%" stopColor="#9945FF" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M8 32V8H22C25.3137 8 28 10.6863 28 14C28 17.3137 25.3137 20 22 20H15V32H8Z"
+    fill="url(#pmFaviconGrad)"
+  />
+  <path
+    d="M17 12L25 21L33 12V32H27V21L25 24L20 18.5V32H15V12H17Z"
+    fill="#03E1FF"
+    opacity="0.9"
+  />
+  <path
+    d="M25 17L28 21L25 25L22 21L25 17Z"
+    fill="#ffffff"
+  />
+</svg>

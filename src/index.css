@@ -1,0 +1,523 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   HIGH-CONTRAST FINANCIAL TERMINAL LIGHT MODE
+   Engineered for day-trading analysis, high-contrast order book scrutiny,
+   and daylight readability with crisp typography and institutional metrics.
+   ========================================================================== */
+
+html.financial-light {
+  color-scheme: light;
+}
+
+html.financial-light body {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Backgrounds - Panels, Cards, Containers */
+html.financial-light .bg-slate-950,
+html.financial-light .bg-slate-950\/95,
+html.financial-light .bg-slate-950\/90,
+html.financial-light .bg-slate-950\/80,
+html.financial-light .bg-slate-950\/70,
+html.financial-light .bg-slate-950\/60,
+html.financial-light .bg-slate-950\/50,
+html.financial-light .bg-slate-950\/40,
+html.financial-light .bg-slate-950\/30,
+html.financial-light .bg-slate-950\/20,
+html.financial-light .bg-slate-950\/10 {
+  background-color: #f8fafc !important;
+}
+
+html.financial-light .bg-slate-900,
+html.financial-light .bg-slate-900\/95,
+html.financial-light .bg-slate-900\/90,
+html.financial-light .bg-slate-900\/80,
+html.financial-light .bg-slate-900\/70,
+html.financial-light .bg-slate-900\/60,
+html.financial-light .bg-slate-900\/50,
+html.financial-light .bg-slate-900\/40,
+html.financial-light .bg-slate-900\/30,
+html.financial-light .bg-slate-900\/20 {
+  background-color: #ffffff !important;
+}
+
+html.financial-light .bg-slate-800,
+html.financial-light .bg-slate-800\/90,
+html.financial-light .bg-slate-800\/80,
+html.financial-light .bg-slate-800\/70,
+html.financial-light .bg-slate-800\/60,
+html.financial-light .bg-slate-800\/50,
+html.financial-light .bg-slate-800\/40,
+html.financial-light .bg-slate-800\/30,
+html.financial-light .bg-slate-800\/20,
+html.financial-light .bg-slate-850 {
+  background-color: #f1f5f9 !important;
+}
+
+html.financial-light .hover\:bg-slate-900\/60:hover,
+html.financial-light .hover\:bg-slate-950:hover,
+html.financial-light .hover\:bg-slate-900:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html.financial-light .hover\:bg-slate-800:hover,
+html.financial-light .hover\:bg-slate-800\/80:hover,
+html.financial-light .hover\:bg-slate-800\/60:hover,
+html.financial-light .hover\:bg-slate-800\/50:hover,
+html.financial-light .hover\:bg-slate-800\/40:hover,
+html.financial-light .hover\:bg-slate-800\/30:hover,
+html.financial-light .hover\:bg-slate-800\/20:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html.financial-light .hover\:bg-slate-750:hover,
+html.financial-light .hover\:bg-slate-700:hover {
+  background-color: #cbd5e1 !important;
+}
+
+/* Gradients for Hero Cards & Banners */
+html.financial-light .from-slate-900 {
+  --tw-gradient-from: #ffffff !important;
+}
+html.financial-light .via-slate-900\/95,
+html.financial-light .via-slate-900 {
+  --tw-gradient-via: #f8fafc !important;
+}
+html.financial-light .to-emerald-950\/30 {
+  --tw-gradient-to: #ecfdf5 !important;
+}
+html.financial-light .to-cyan-950\/30 {
+  --tw-gradient-to: #f0f9ff !important;
+}
+html.financial-light .to-purple-950\/30 {
+  --tw-gradient-to: #faf5ff !important;
+}
+
+/* High-Contrast Borders */
+html.financial-light .border-slate-950,
+html.financial-light .border-slate-900,
+html.financial-light .border-slate-800,
+html.financial-light .border-slate-800\/90,
+html.financial-light .border-slate-800\/80,
+html.financial-light .border-slate-800\/70,
+html.financial-light .border-slate-800\/60,
+html.financial-light .border-slate-800\/50,
+html.financial-light .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+html.financial-light .divide-slate-800,
+html.financial-light .divide-slate-800\/60,
+html.financial-light .divide-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Typography Hierarchy - Maximum Contrast */
+html.financial-light .text-white,
+html.financial-light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.financial-light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.financial-light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.financial-light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.financial-light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* High-Contrast Financial Ticker & Action Colors */
+/* Banner tints */
+html.financial-light .bg-cyan-950,
+html.financial-light .bg-cyan-950\/20,
+html.financial-light .bg-cyan-950\/30,
+html.financial-light .bg-cyan-950\/40 {
+  background-color: #f0f9ff !important;
+}
+
+html.financial-light .bg-emerald-950,
+html.financial-light .bg-emerald-950\/20,
+html.financial-light .bg-emerald-950\/30,
+html.financial-light .bg-emerald-950\/40 {
+  background-color: #ecfdf5 !important;
+}
+
+/* Emerald (Profits / Settlements / Validated) */
+html.financial-light .text-emerald-400,
+html.financial-light .text-emerald-300 {
+  color: #059669 !important;
+}
+
+html.financial-light .bg-emerald-500\/10,
+html.financial-light .bg-emerald-500\/15,
+html.financial-light .bg-emerald-500\/20 {
+  background-color: #ecfdf5 !important;
+}
+
+html.financial-light .border-emerald-500\/20,
+html.financial-light .border-emerald-500\/30,
+html.financial-light .border-emerald-500\/40 {
+  border-color: #a7f3d0 !important;
+}
+
+/* Cyan / Blue (Active Stream / System / M2M) */
+html.financial-light .text-cyan-400,
+html.financial-light .text-cyan-300 {
+  color: #0284c7 !important;
+}
+
+html.financial-light .bg-cyan-500\/5,
+html.financial-light .bg-cyan-500\/10,
+html.financial-light .bg-cyan-500\/15,
+html.financial-light .bg-cyan-500\/20 {
+  background-color: #f0f9ff !important;
+}
+
+html.financial-light .border-cyan-500\/20,
+html.financial-light .border-cyan-500\/30,
+html.financial-light .border-cyan-500\/40 {
+  border-color: #7dd3fc !important;
+}
+
+/* Rose / Red (Outflows / Spent / Warnings) */
+html.financial-light .text-rose-400,
+html.financial-light .text-rose-300 {
+  color: #dc2626 !important;
+}
+
+html.financial-light .bg-rose-500\/10,
+html.financial-light .bg-rose-500\/15,
+html.financial-light .bg-rose-500\/20 {
+  background-color: #fef2f2 !important;
+}
+
+html.financial-light .border-rose-500\/20,
+html.financial-light .border-rose-500\/30,
+html.financial-light .border-rose-500\/40,
+html.financial-light .border-rose-500\/50 {
+  border-color: #fecaca !important;
+}
+
+/* Amber (Pending / Warning / Threshold) */
+html.financial-light .text-amber-400,
+html.financial-light .text-amber-300 {
+  color: #b45309 !important;
+}
+
+html.financial-light .bg-amber-500\/10,
+html.financial-light .bg-amber-500\/15,
+html.financial-light .bg-amber-500\/20 {
+  background-color: #fffbeb !important;
+}
+
+html.financial-light .border-amber-500\/20,
+html.financial-light .border-amber-500\/30,
+html.financial-light .border-amber-500\/40,
+html.financial-light .border-amber-500\/50 {
+  border-color: #fde68a !important;
+}
+
+/* Form Controls & Inputs */
+html.financial-light input,
+html.financial-light select,
+html.financial-light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.financial-light input:focus,
+html.financial-light select:focus,
+html.financial-light textarea:focus {
+  border-color: #0284c7 !important;
+  outline: 2px solid rgba(2, 132, 199, 0.2) !important;
+}
+
+/* Code & Pre Blocks */
+html.financial-light pre,
+html.financial-light code {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Navigation Tabs & Selection */
+html.financial-light .border-cyan-400 {
+  border-color: #0284c7 !important;
+}
+
+/* Charts / SVG Tweaks */
+html.financial-light .recharts-cartesian-grid-horizontal line,
+html.financial-light .recharts-cartesian-grid-vertical line {
+  stroke: #e2e8f0 !important;
+}
+
+html.financial-light .recharts-text {
+  fill: #475569 !important;
+}
+
+/* Financial Terminal Shadow Enhancement */
+html.financial-light .rounded-xl,
+html.financial-light .rounded-2xl {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   SOLANA BEACH (solanabeach.io) AESTHETIC ENHANCEMENTS
+   High-performance telemetry, cosmic obsidian surfaces, neon gradients,
+   and precision micro-interactions.
+   ========================================================================== */
+
+.solana-gradient {
+  background: linear-gradient(135deg, #14F195 0%, #03E1FF 50%, #9945FF 100%);
+}
+
+.solana-gradient-h {
+  background: linear-gradient(90deg, #14F195 0%, #03E1FF 50%, #9945FF 100%);
+}
+
+.solana-text-gradient {
+  background: linear-gradient(135deg, #14F195 0%, #03E1FF 50%, #9945FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.solana-text-gradient-purple {
+  background: linear-gradient(135deg, #03E1FF 0%, #9945FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.solana-card-glow {
+  box-shadow: 0 0 25px -5px rgba(20, 241, 149, 0.12);
+}
+
+.solana-purple-glow {
+  box-shadow: 0 0 25px -5px rgba(153, 69, 255, 0.15);
+}
+
+.solana-border-glow {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solana-border-glow:hover {
+  border-color: rgba(20, 241, 149, 0.4) !important;
+  box-shadow: 0 0 16px -2px rgba(20, 241, 149, 0.2);
+}
+
+/* Glassmorphism Frosted Glass */
+.solana-glass {
+  background: rgba(12, 16, 23, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle Solana-style border glow card */
+.solana-card {
+  background: rgba(12, 16, 23, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solana-card:hover {
+  border-color: rgba(20, 241, 149, 0.35) !important;
+  box-shadow: 0 0 20px -3px rgba(20, 241, 149, 0.14), 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.solana-card-purple:hover {
+  border-color: rgba(153, 69, 255, 0.4) !important;
+  box-shadow: 0 0 20px -3px rgba(153, 69, 255, 0.16), 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Smooth hover-glow on interactive buttons and rows */
+.solana-hover-glow {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solana-hover-glow:hover {
+  box-shadow: 0 0 14px -1px rgba(20, 241, 149, 0.22);
+}
+
+/* Soft Entrance Animations */
+@keyframes solanaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.solana-fade-up {
+  animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.solana-fade-up-1 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.04s forwards; opacity: 0; }
+.solana-fade-up-2 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards; opacity: 0; }
+.solana-fade-up-3 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards; opacity: 0; }
+.solana-fade-up-4 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards; opacity: 0; }
+.solana-fade-up-5 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.20s forwards; opacity: 0; }
+.solana-fade-up-6 { animation: solanaFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards; opacity: 0; }
+
+/* High-Contrast Financial Light Mode Overrides for Solana Tokens */
+html.financial-light .solana-glass,
+html.financial-light .solana-card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.financial-light .solana-card:hover {
+  border-color: #059669 !important;
+  box-shadow: 0 4px 14px -2px rgba(5, 150, 105, 0.16) !important;
+  transform: translateY(-1px);
+}
+
+html.financial-light .solana-card-purple:hover {
+  border-color: #7c3aed !important;
+  box-shadow: 0 4px 14px -2px rgba(124, 58, 237, 0.16) !important;
+  transform: translateY(-1px);
+}
+
+/* App Canvas & Shell Backgrounds */
+html.financial-light .bg-\[\#0a0d14\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.financial-light .bg-\[\#0c1017\],
+html.financial-light .bg-\[\#111622\],
+html.financial-light .bg-\[\#0d121c\] {
+  background-color: #ffffff !important;
+}
+
+html.financial-light .bg-\[\#0c1017\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html.financial-light .bg-\[\#080b10\] {
+  background-color: #f8fafc !important;
+}
+
+html.financial-light .bg-\[\#080b10\]\/60,
+html.financial-light .bg-\[\#080b10\]\/80 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* High-Contrast Borders and Dividers */
+html.financial-light .border-white\/\[0\.08\],
+html.financial-light .border-white\/\[0\.07\],
+html.financial-light .border-white\/\[0\.06\],
+html.financial-light .border-white\/\[0\.04\],
+html.financial-light .border-white\/10,
+html.financial-light .border-white\/5 {
+  border-color: #e2e8f0 !important;
+}
+
+html.financial-light .divide-white\/\[0\.04\],
+html.financial-light .divide-white\/\[0\.06\] {
+  border-color: #e2e8f0 !important;
+}
+
+/* High-Contrast Solana Text Gradients in Light Mode */
+html.financial-light .solana-text-gradient {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #4f46e5 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.financial-light .solana-text-gradient-purple {
+  background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Accent Color Overrides for High Contrast */
+html.financial-light .text-\[\#14F195\] {
+  color: #059669 !important;
+}
+
+html.financial-light .text-\[\#03E1FF\] {
+  color: #0284c7 !important;
+}
+
+html.financial-light .text-\[\#9945FF\] {
+  color: #7c3aed !important;
+}
+
+html.financial-light .border-\[\#14F195\]\/30,
+html.financial-light .border-\[\#14F195\]\/40 {
+  border-color: #a7f3d0 !important;
+}
+
+html.financial-light .border-\[\#03E1FF\]\/30,
+html.financial-light .border-\[\#03E1FF\]\/40 {
+  border-color: #7dd3fc !important;
+}
+
+html.financial-light .border-\[\#9945FF\]\/30,
+html.financial-light .border-\[\#9945FF\]\/40 {
+  border-color: #ddd6fe !important;
+}
+
+html.financial-light .bg-\[\#14F195\]\/10,
+html.financial-light .bg-\[\#14F195\]\/15,
+html.financial-light .bg-\[\#14F195\]\/20 {
+  background-color: #ecfdf5 !important;
+}
+
+html.financial-light .bg-\[\#03E1FF\]\/15,
+html.financial-light .bg-\[\#03E1FF\]\/20,
+html.financial-light .bg-\[\#03E1FF\]\/25 {
+  background-color: #f0f9ff !important;
+}
+
+html.financial-light .bg-\[\#9945FF\]\/10,
+html.financial-light .bg-\[\#9945FF\]\/15,
+html.financial-light .bg-\[\#9945FF\]\/20 {
+  background-color: #f5f3ff !important;
+}
+
+/* Transparent Inputs inside search modals should remain transparent */
+html.financial-light input.bg-transparent,
+html.financial-light input[type="text"].bg-transparent {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+
